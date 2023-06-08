@@ -59,6 +59,7 @@ enum AnimalType {
   dog,
   cat,
   rabbit,
+  monkye,
 }
 
 class Animal {
@@ -66,4 +67,22 @@ class Animal {
   final AnimalType animalType;
 
   Animal({required this.name, required this.animalType});
+}
+findAnimal(){
+  final foo= Animal(name: 'lucie', animalType: AnimalType.cat);
+  switch(foo.animalType){
+    
+    case AnimalType.dog:
+      print('Thats a dog');
+      break;
+    case AnimalType.cat:
+      print('Thats a cat');
+      break;
+    case AnimalType.rabbit:
+      print('Thats a Rabbit');
+      break;
+    case AnimalType.monkye:
+      print('thats a monkye');
+      break;
+  }
 }
