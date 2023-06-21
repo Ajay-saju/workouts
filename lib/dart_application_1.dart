@@ -65,7 +65,8 @@ int numberOfSteps(int num) {
   print(count);
   return count;
 }
-exampleForEach(){
+
+exampleForEach() {
   List<String> fruits = ['apple', 'banana', 'orange', 'mango'];
 
   for (String fr in fruits) {
@@ -73,17 +74,42 @@ exampleForEach(){
   }
 }
 
-// class Solution {
-//   ListNode? middleNode(ListNode? head) {
-
-//   }
-// }
 class Node {
   int? data;
   Node? next;
   Node(this.data);
 }
 
+class Linkedlist {
+  Node? head;
+  void insertData(data) {
+    Node newNode = Node(data);
+    if (head == null) {
+      head = newNode;
+    } else {
+      Node? current = head;
+
+      while (current!.next != null) {
+        current = current.next;
+      }
+      current.next = newNode;
+    }
+    // print(head!.data);
+  }
+
+  void display() {                
+    Node? current = head;
+    if (current == null) {
+      print('Liked list is empty');
+    } else {
+      while (current != null) {
+        print(current.data);
+        // print(current.next.toString());
+        current = current.next;
+      }
+    }
+  }
+}
 
 conditionChecking() {
   int a = 5;

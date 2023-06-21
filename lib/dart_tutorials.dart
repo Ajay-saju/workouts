@@ -68,10 +68,10 @@ class Animal {
 
   Animal({required this.name, required this.animalType});
 }
-findAnimal(){
-  final foo= Animal(name: 'lucie', animalType: AnimalType.cat);
-  switch(foo.animalType){
-    
+
+findAnimal() {
+  final foo = Animal(name: 'lucie', animalType: AnimalType.dog);
+  switch (foo.animalType) {
     case AnimalType.dog:
       print('Thats a dog');
       break;
@@ -86,3 +86,94 @@ findAnimal(){
       break;
   }
 }
+
+enum PaymentStatus {
+  pending,
+  faild,
+  complete,
+}
+
+class Payment {
+  final String paymentId;
+  final String amount;
+  final PaymentStatus status;
+  Payment(
+      {required this.paymentId, required this.amount, required this.status});
+}
+
+printPaymentStatus({required Payment payment}) {
+  // ignore: unused_local_variable
+  String statusText;
+  switch (payment.status) {
+    case PaymentStatus.complete:
+      statusText = 'Payment Complete';
+      break;
+    case PaymentStatus.faild:
+      statusText = 'Payment Failed';
+      break;
+    case PaymentStatus.pending:
+      statusText = 'Payment pending';
+      break;
+  }
+  print("Amount : ${payment.amount}");
+  print("Payment Id  : ${payment.paymentId}");
+  print("Payment Status : ${payment.status}");
+}
+
+// ------Inheritance and Subclassing -------
+
+abstract class Shape {
+  double shape();
+  void dispaly();
+}
+
+class Circle extends Shape {
+  double radius;
+  Circle(this.radius);
+
+  @override
+  double shape() {
+    return 3.14 * radius;
+  }
+
+  @override
+  void dispaly() {
+    print('Circle Radius: $radius');
+  }
+}
+// --------Factory constructor in dart-----
+
+// creating a new class
+class Person {
+  final String name;
+  final double age;
+
+  Person(this.name, this.age);
+  factory Person.fromBirtYear(String name, int birthYear) {
+    int currentYear = DateTime.now().year;
+    double age = currentYear - birthYear.toDouble();
+    return Person(name, age);
+  }
+}
+
+class Currency {
+  final String code;
+  final String symbol;
+
+  Currency(this.code, this.symbol);
+
+  factory Currency.fromCode(String code) {
+    switch (code) {
+      case 'USD':
+        return Currency(code, "\$");
+      case 'EUR':
+        return Currency(code, "\€");
+      case 'GBP':
+        return Currency(code, "\£");
+      default:
+        return Currency(code, '');
+    }
+  }
+}
+// ---- Custome Oparators ----
+
