@@ -97,7 +97,7 @@ class Linkedlist {
     // print(head!.data);
   }
 
-  void display() {                
+  void display() {
     Node? current = head;
     if (current == null) {
       print('Liked list is empty');
@@ -110,6 +110,8 @@ class Linkedlist {
     }
   }
 }
+
+
 
 conditionChecking() {
   int a = 5;

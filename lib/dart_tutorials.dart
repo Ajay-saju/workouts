@@ -177,3 +177,55 @@ class Currency {
 }
 // ---- Custome Oparators ----
 
+// ---- Extentions ----
+
+class Dog {
+  final String name;
+
+  Dog(this.name);
+}
+
+extension Run on Dog {
+  void display() {
+    print('$name is runnig');
+  }
+}
+
+// ---- Streams ----
+
+Stream<String> getName() {
+  return Stream.value('ajayayayayayayayay');
+}
+
+Stream<String> pipeline() {
+  return Stream.periodic(Duration(seconds: 1), (value) {
+    return 'Ajay';
+  });
+}
+
+class GetStream {
+  
+  display() async {
+    await for (final value in pipeline()) {
+      print(value);
+    }
+    print('Stream completed');
+  }
+}
+
+// -----Genarator Functions-------
+// Its a special type of functions uses the "yield" keyword to produce a sequence of values lazily,
+Iterable<int> countdown(int value) sync* {
+  for (int i = value; i >= 0; i--) {
+    yield i;
+  }
+}
+//--------Generics------
+// To avoid re-writing the similar code
+
+class Pair<A,B>{
+  final String name;
+  final int age;
+
+  Pair(this.name, this.age);
+}
