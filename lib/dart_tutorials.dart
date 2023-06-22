@@ -56,10 +56,12 @@ weekDays() {
 /*-------- Enum ---------- */
 
 enum AnimalType {
+ 
   dog,
   cat,
   rabbit,
   monkye,
+  
 }
 
 class Animal {
@@ -178,6 +180,7 @@ class Currency {
 // ---- Custome Oparators ----
 
 // ---- Extentions ----
+// we can add extensions to a defined class 
 
 class Dog {
   final String name;
@@ -192,7 +195,7 @@ extension Run on Dog {
 }
 
 // ---- Streams ----
-
+// asincronous pipe of data
 Stream<String> getName() {
   return Stream.value('ajayayayayayayayay');
 }
