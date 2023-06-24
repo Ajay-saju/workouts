@@ -40,10 +40,48 @@ class FirstOrLastNameException implements Exception {}
 
 // Future chaining
 // calling multiple future methods.
-Future<String> myName()async{
- return 'hi';
+Future<String> myName() async {
+  return 'hi';
 }
+
 Future<String> getName1() =>
     Future.delayed(Duration(seconds: 3), () => 'Ajay saju');
 Future<int> nameLength(String value) =>
     Future.delayed(Duration(seconds: 1), () => value.length);
+
+// ----- Streams ----
+
+Stream<int> getCount() async* {
+  var count = 0;
+  while (count < 10) {
+    await Future.delayed(
+      Duration(seconds: 1),
+    );
+    yield count;
+    count++;
+  }
+}
+
+Stream<String> getmyNmae() async* {
+  await Future.delayed(
+    Duration(seconds: 1),
+  );
+  yield 'Ajay s u';
+  throw 'Some error';
+}
+
+// Explain asyncExpand function
+
+Stream<String> getMyNames() async* {
+  await Future.delayed(Duration(milliseconds: 300));
+  yield 'Ajay';
+  await Future.delayed(Duration(milliseconds: 300));
+  yield 'Saju';
+}
+
+Stream<String> getCharecters(String values) async* {
+  for (var i = 0; i < values.length; i++) {
+    await Future.delayed(Duration(milliseconds: 100));
+    yield values[i];
+  }
+}
