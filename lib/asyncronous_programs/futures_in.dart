@@ -26,8 +26,24 @@ Future<String> getCity() async {
 }
 
 // Error Handling or Exception handling in Future functions
-
-Future getFullName(
+// please use the try catch for error handling.
+Future<String> getFullName(
     {required String firstName, required String lastName}) async {
-      
-    }
+  if (firstName.isEmpty || lastName.isEmpty) {
+    throw FirstOrLastNameException();
+  } else {
+    return Future.value("$firstName $lastName");
+  }
+}
+
+class FirstOrLastNameException implements Exception {}
+
+// Future chaining
+// calling multiple future methods.
+Future<String> myName()async{
+ return 'hi';
+}
+Future<String> getName1() =>
+    Future.delayed(Duration(seconds: 3), () => 'Ajay saju');
+Future<int> nameLength(String value) =>
+    Future.delayed(Duration(seconds: 1), () => value.length);
