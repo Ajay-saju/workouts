@@ -85,3 +85,23 @@ Stream<String> getCharecters(String values) async* {
     yield values[i];
   }
 }
+
+// Stream reduce function
+
+Stream<int> getAllAges() async* {
+  yield 10;
+  yield 20;
+  yield 30;
+  yield 40;
+}
+// final sum = await getAllAges().reduce((a, b) => a + b);
+
+
+//Typedef in flutter
+typedef Comparison<int> = int Function(int a, int b);
+
+//In the code above, a typedef named Comparison is defined, which represents a function that takes two arguments
+// of type int and returns an integer
+int compareIntegers(int a, int b) {
+  return a.compareTo(b);
+}
