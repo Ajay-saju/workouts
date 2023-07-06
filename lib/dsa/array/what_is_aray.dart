@@ -115,3 +115,62 @@ sortTemp(temp) {
   }
   return temp;
 }
+
+// Array oparations
+
+printList(List nums) {
+  for (int i in nums) {
+    print(i);
+  }
+}
+
+List<int> intList = List<int>.filled(6, 0);
+addElements() {
+  int length = 0;
+
+  for (int i = 0; i < 3; i++) {
+    intList[length] = i;
+    length++;
+  }
+  // intList[0] = 10;
+  // printList(intList);
+}
+
+// insert a elemet in the first position
+
+insertingFirst() {
+  print(intList.length);
+  for (int i = intList.length; i >= 0; i--) {
+    intList[i + 1] = intList[i];
+  }
+  intList[0] = 20;
+  printList(intList);
+}
+
+// Duplicate g=[g]
+//[11,0,22,33,0,44,55,0]
+duplicateZeros(List nums) {
+  print("nums length:${nums.length}");
+  for (int i = 0; i < nums.length; i++) {
+    print('i value== ${nums[i]}, value of I :$i');
+    if (nums[i] == 0) {
+      for (int j = nums.length - 1; j > i; j--) {
+        print('j loop :$j');
+        nums[j] = nums[j - 1];
+      }
+      print('I value befor increment:$i');
+      i++;
+      print('I value after increment:$i');
+    }
+  }
+  // printList(nums);
+  return nums;
+}
+// Merge Sorted Array
+// Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+// Output: [1,2,2,3,5,6]
+
+merge(List<int> nums1, int m, List<int> nums2, int n) {
+  for (int i = 0; i < nums1.length; i++) {}
+  printList(nums1);
+}
