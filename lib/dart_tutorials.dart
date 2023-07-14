@@ -56,12 +56,10 @@ weekDays() {
 /*-------- Enum ---------- */
 
 enum AnimalType {
- 
   dog,
   cat,
   rabbit,
   monkye,
-  
 }
 
 class Animal {
@@ -180,7 +178,7 @@ class Currency {
 // ---- Custome Oparators ----
 
 // ---- Extentions ----
-// we can add extensions to a defined class 
+// we can add extensions to a defined class
 
 class Dog {
   final String name;
@@ -207,7 +205,6 @@ Stream<String> pipeline() {
 }
 
 class GetStream {
-  
   display() async {
     await for (final value in pipeline()) {
       print(value);
@@ -226,9 +223,54 @@ Iterable<int> countdown(int value) sync* {
 //--------Generics------
 // To avoid re-writing the similar code
 
-class Pair<A,B>{
+class Pair<A, B> {
   final String name;
   final int age;
 
   Pair(this.name, this.age);
+}
+
+// This and super in dart
+
+// this keyword reffers to the current instunts of a class it prymerlly used to deffeentiate between instants variables and
+// method parameters or local variables that have the same name.
+
+class Student {
+  late String name;
+
+  void setName(String name) {
+    this.name = name;
+  }
+
+  void printName() {
+    print('Student name :$name');
+  }
+}
+
+// Super Keyword(),
+//The super keyword is used to refer to the immediate parent class of a subclass commenly used when a sub class want to access or
+// invokes a method or cunstructor from the parent class. It helps to achiving method overriding and constructor cahining
+
+class Vehicle {
+  String? brand;
+
+  Vehicle(String brand) {
+    this.brand = brand;
+  }
+  void displayBrand() {
+    print("Brand: $brand");
+  }
+}
+
+class Car extends Vehicle {
+  int? numWheels;
+
+  Car(String brand, int numWheels) : super(brand) {
+    this.numWheels = numWheels;
+  }
+
+  displayCarDetails() {
+    super.displayBrand();
+    print('Number ofwheels: $numWheels');
+  }
 }

@@ -171,6 +171,30 @@ duplicateZeros(List nums) {
 // Output: [1,2,2,3,5,6]
 
 merge(List<int> nums1, int m, List<int> nums2, int n) {
-  for (int i = 0; i < nums1.length; i++) {}
-  printList(nums1);
+  int i = m - 1; // will point at m-1 index of nums1 array
+  int j = n - 1; // will point at n-1 index of nums2 array
+  int k = nums1.length - 1; //will point at the last position of the nums1 array
+while(j>=0){
+
+  if(j>=0){
+    nums1[k]=nums2[j];
+    k--;
+    j--;
+  }
+
+ 
+}
+
+for (int p = 0; p < nums1.length; p++) {
+    for (int b = 0; b < nums1.length - 1; b++) {
+      if (nums1[p] < nums1[b]) {
+        int tem = nums1[b];
+        nums1[b] = nums1[p];
+        nums1[p] = tem;
+      }
+    }
+  }
+
+  
+  print(nums1);
 }
