@@ -229,3 +229,57 @@ deletingAtFirst() {
     print("index: $i value:${array[i]}");
   }
 }
+
+deletingInGivenIndex() {
+  List<int> array = List.filled(10, 0);
+  int length = 0;
+  for (int i = 0; i < 6; i++) {
+    array[i] = i;
+    length++;
+  }
+  for (int i = 0; i < length; i++) {
+    print("index: $i value:${array[i]}");
+  }
+
+  for (int i = 3; i < length; i++) {
+    array[i - 1] = array[i];
+  }
+  length--;
+
+  for (int i = 0; i < length; i++) {
+    print("index: $i value:${array[i]}");
+  }
+}
+
+// Remove Element
+int removeElement(List<int> nums, int val) {
+  int index = 0;
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] != val) {
+      nums[index] = nums[i];
+      index++;
+    }
+
+    // nums.length--;
+  }
+  print(index);
+  print(nums);
+  return index;
+}
+
+//Remove Duplicates from Sorted Array
+
+int removeDuplicates(List<int> nums) {
+  for (int i = 0; i < nums.length; i++) {
+    if (i != nums.length - 1 && nums[i] == nums[i + 1]) {
+      for (int j = i; j < nums.length-1; j++) {
+        nums[j] = nums[j + 1];
+      }
+      nums.length--;
+      i--;
+    }
+  }
+  print(nums);
+  print(nums.length);
+  return 0;
+}
