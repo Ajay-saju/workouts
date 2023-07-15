@@ -174,18 +174,15 @@ merge(List<int> nums1, int m, List<int> nums2, int n) {
   int i = m - 1; // will point at m-1 index of nums1 array
   int j = n - 1; // will point at n-1 index of nums2 array
   int k = nums1.length - 1; //will point at the last position of the nums1 array
-while(j>=0){
-
-  if(j>=0){
-    nums1[k]=nums2[j];
-    k--;
-    j--;
+  while (j >= 0) {
+    if (j >= 0) {
+      nums1[k] = nums2[j];
+      k--;
+      j--;
+    }
   }
 
- 
-}
-
-for (int p = 0; p < nums1.length; p++) {
+  for (int p = 0; p < nums1.length; p++) {
     for (int b = 0; b < nums1.length - 1; b++) {
       if (nums1[p] < nums1[b]) {
         int tem = nums1[b];
@@ -195,6 +192,40 @@ for (int p = 0; p < nums1.length; p++) {
     }
   }
 
-  
   print(nums1);
+}
+
+// Array deletion
+
+// deleting from the end of the array
+
+deletingAtEnd() {
+  List<int> array = List.filled(10, 0);
+  int length = 0;
+  for (int i = 0; i < 6; i++) {
+    array[i] = i;
+    length++;
+  }
+  length--;
+  for (int i = 0; i < length; i++) {
+    print(array[i]);
+  }
+}
+
+deletingAtFirst() {
+  List<int> array = List.filled(10, 0);
+  int length = 0;
+  for (int i = 0; i < 6; i++) {
+    array[i] = i;
+    length++;
+  }
+
+  for (int i = 1; i < length; i++) {
+    array[i - 1] = array[i];
+  }
+  length--;
+
+  for (int i = 0; i < length; i++) {
+    print("index: $i value:${array[i]}");
+  }
 }
