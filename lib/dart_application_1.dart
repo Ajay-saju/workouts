@@ -111,8 +111,6 @@ class Linkedlist {
   }
 }
 
-
-
 conditionChecking() {
   int a = 5;
   int b = 6;
@@ -120,4 +118,47 @@ conditionChecking() {
   print(a > b); // a grater than b
   print(b < a);
   print(b > a);
+}
+
+//Expaining Lamda Function in dart
+// Its also known as anonymous function or lamda, Which is function that does't have a name.
+
+// This is normal lamda function
+// ignore: prefer_function_declarations_over_variables
+Function addNumbers = (int a, int b) {
+  int sum = a + b;
+  print(sum);
+};
+
+// calling normal lamda function -> addNumbers(10,56);
+
+// lamda function with return type
+
+Function multiplyLamda = (int number) {
+  return number * number;
+};
+
+// calling lamda function with return type -> var output = multiplyLamda(10);
+
+// Another way of implementing lamda function
+
+Function lamdaAdd = (int a, int b) => a + b;
+Function lamdaSqure = (int number) => number * number;
+
+// Expalin about Higher Order functions
+// can accept function as a parameter , can return a function, can do both .
+
+// Accepting function as a parameter
+
+void someOtherFunction(String msg, Function myfunction) {
+  print(msg);
+ int output= myfunction(20, 65);
+ print(output);
+  
+}
+
+// return a function
+Function returnAFunction() {
+  squreOfaNumber(int number) => number * number;
+  return squreOfaNumber;
 }

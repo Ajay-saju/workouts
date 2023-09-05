@@ -272,7 +272,7 @@ int removeElement(List<int> nums, int val) {
 int removeDuplicates(List<int> nums) {
   for (int i = 0; i < nums.length; i++) {
     if (i != nums.length - 1 && nums[i] == nums[i + 1]) {
-      for (int j = i; j < nums.length-1; j++) {
+      for (int j = i; j < nums.length - 1; j++) {
         nums[j] = nums[j + 1];
       }
       nums.length--;
@@ -282,4 +282,35 @@ int removeDuplicates(List<int> nums) {
   print(nums);
   print(nums.length);
   return 0;
+}
+
+//Check If N and Its Double Exist
+bool checkIfExist(List<int> arr) {
+  for (int i = 0; i < arr.length; i++) {
+    // ignore: dead_code
+    for (int j = i + 1; j < arr.length; j++) {
+      if (i != j && 0 <= i && j <= arr.length && arr[i] == 2 * arr[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// Valid Mountain Array
+
+bool validMountainArray(List arr) {
+  if (arr.length < 3) return false;
+  // int middle = arr.length ~/ 2;
+  int n = arr.length;
+  int i = 0;
+
+  while (i < n - 1 && arr[i] < arr[i + 1]) {
+    i++;
+  }
+  if (i == 0 || i == n - 1) return false;
+  while (i < n - 1 && arr[i] > arr[i + 1]) {
+    i++;
+  }
+  return i == n - 1;
 }

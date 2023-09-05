@@ -3,8 +3,12 @@ import 'package:dart_application_1/bloc/bloc_workout.dart';
 import 'package:dart_application_1/dart_application_1.dart';
 import 'package:dart_application_1/dart_tutorials.dart';
 import 'package:dart_application_1/dsa/array/what_is_aray.dart';
+import 'package:dart_application_1/interview_workouts/sample_interview_qs.dart';
 
 void main() async {
-  var count = removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
-  print(count);   
+  int n = 6;
+  for (int i = 0; i < n; i++) 
+  {
+    print(fibonacci(i));
+  }
 }
